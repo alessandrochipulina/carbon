@@ -38,5 +38,5 @@ def calcular_huella(request):
     else:
         context = {'resultado': None}
 
-    template = loader.get_template('templates/form.html')
+    template = loader.get_template('landing/form.html')
     return HttpResponse(template.render(context, request))
