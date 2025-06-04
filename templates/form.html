@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Huella de Carbono</title>
+</head>
+<body>
+    <h1>Calculadora de Huella de Carbono</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Transporte público:</label>
+        <select name="transporte">
+            <option value="car">Car</option>
+            <option value="bike">Bike</option>
+            <option value="bus">Bus</option>
+            <option value="train">Train</option>
+        </select><br>
+
+        <label>Número de pasajeros:</label>
+        <input type="number" name="pasajeros"><br>
+
+        <label>Distancia (km):</label>
+        <input type="number" step="any" name="distancia"><br>
+
+        <label>Uso energético (kWh):</label>
+        <input type="number" step="any" name="energia"><br>
+
+        <label>Gas natural (m³):</label>
+        <input type="number" step="any" name="gas"><br>
+
+        <label>Tipo de combustible:</label>
+        <select name="combustible">
+            <option value="petrol">Petrol</option>
+            <option value="diesel">Diesel</option>
+        </select><br>
+
+        <label>Cantidad de combustible (litros):</label>
+        <input type="number" step="any" name="litros"><br>
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    {% if resultado is not None %}
+        <h2>Tu huella de carbono estimada: {{ resultado }} kg de CO₂</h2>
+    {% endif %}
+
+    
+</body>
+</html>
