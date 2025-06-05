@@ -1,4 +1,4 @@
-def estimar_huella(
+def estimate_footprint(
     transporte, pasajeros, distancia_km,
     energia_kwh, gas_m3,
     tipo_combustible, litros_combustible
@@ -42,5 +42,5 @@ def estimar_huella(
 #| 🚌 Bus           | 0.105 kg CO₂ / pasajero·km |
 #| 🚆 Tren          | 0.041 kg CO₂ / pasajero·km |
 #| 🚲 Bicicleta     | 0 kg CO₂                   |
-#| ⚡ Electricidad   | 0.233 kg CO₂ / kWh         |
+#| ⚡ Electricidad  | 0.233 kg CO₂ / kWh         |
 #| 🔥 Gas natural   | 2.0 kg CO₂ / m³            |

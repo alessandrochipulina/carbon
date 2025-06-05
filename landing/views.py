@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from .forms import HuellaCarbonoForm
-from .utils import estimar_huella
+from .utils import estimate_footprint
 from django.template import loader
 
 # Create your views here.
@@ -22,7 +21,7 @@ def calcular_huella(request):
         combustible = request.POST.get('combustible')
         litros = float(request.POST.get('litros', 0))
 
-        resultado = estimar_huella(
+        result = estimate_footprint(
             transporte,
             pasajeros,
             distancia,
@@ -33,10 +32,10 @@ def calcular_huella(request):
         )
 
         context = {
-                'resultado': resultado, 
+                'result': result,                 
         }
     else:
-        context = {'resultado': None}
+        context = {'result': None}
 
-    template = loader.get_template('landing/form.html')
+    template = loader.get_template('form.html')
     return HttpResponse(template.render(context, request))
