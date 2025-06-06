@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from .utils import estimate_footprint
 from django.template import loader
 
@@ -8,26 +7,26 @@ from django.http import HttpResponse
 def hola(request):
     return HttpResponse("¡Hola Django!")
 
-def calcular_huella(request):
+def calculate(request):
     resultado = None
 
     if request.method == 'POST':
 
-        transporte = request.POST.get('transporte')
-        pasajeros = int(request.POST.get('pasajeros', 1))
-        distancia = float(request.POST.get('distancia', 0))
-        energia = float(request.POST.get('energia', 0))
+        transport = request.POST.get('transport')
+        passenger = 1
+        distance = float(request.POST.get('distance', 0))
+        energy = float(request.POST.get('energy', 0))
         gas = float(request.POST.get('gas', 0))
-        combustible = request.POST.get('combustible')
+        fuel = request.POST.get('fuel')
         litros = float(request.POST.get('litros', 0))
 
         result = estimate_footprint(
-            transporte,
-            pasajeros,
-            distancia,
-            energia,
+            transport,
+            passenger,
+            distance,
+            energy,
             gas,
-            combustible,
+            fuel,
             litros
         )
 

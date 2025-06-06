@@ -1,40 +1,40 @@
 def estimate_footprint(
-    transporte, pasajeros, distancia_km,
+    transport, passenger, Distance_km,
     energia_kwh, gas_m3,
     tipo_combustible, litros_combustible
 ):
-    # Transporte público
-    emisiones_transporte = 0
-    if transporte == 'bus':
-        emisiones_transporte = 0.105 * distancia_km * pasajeros
-    elif transporte == 'train':
-        emisiones_transporte = 0.041 * distancia_km * pasajeros
-    elif transporte == 'bike':
-        emisiones_transporte = 0
-    elif transporte == 'car':
+    # Public transport
+    emissions_transport = 0
+    if transport == 'bus':
+        emissions_transport = 0.105 * Distance_km * passenger
+    elif transport == 'train':
+        emissions_transport = 0.041 * Distance_km * passenger
+    elif transport == 'bike':
+        emissions_transport = 0
+    elif transport == 'car':
         # supondremos 0.192 kg CO₂/km por defecto por auto particular
-        emisiones_transporte = 0.192 * distancia_km
+        emissions_transport = 0.192 * Distance_km
 
     # Electricidad
-    emisiones_energia = energia_kwh * 0.233
+    emissions_energia = energia_kwh * 0.233
 
     # Gas natural
-    emisiones_gas = gas_m3 * 2.0
+    emissions_gas = gas_m3 * 2.0
 
     # Combustible particular
     if tipo_combustible == 'petrol':
-        emisiones_auto = litros_combustible * 2.31
+        emissions_auto = litros_combustible * 2.31
     elif tipo_combustible == 'diesel':
-        emisiones_auto = litros_combustible * 2.68
+        emissions_auto = litros_combustible * 2.68
     else:
-        emisiones_auto = 0
+        emissions_auto = 0
 
     # Total
-    total = emisiones_transporte + emisiones_energia + emisiones_gas + emisiones_auto
+    total = emissions_transport + emissions_energia + emissions_gas + emissions_auto
     return round(total, 2)
 
 
-# Tabla de emisiones de CO₂ por fuente de energía y transporte
+# Tabla de emisiones de CO₂ por fuente de energía y transport
 #| Fuente           | Emisión estimada           |
 #| ---------------- | -------------------------- |
 #| 🚗 Auto (petrol) | 2.31 kg CO₂ / litro        |

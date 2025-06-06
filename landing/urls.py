@@ -20,5 +20,5 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),    
-    path('', views.calcular_huella, name='calcular_huella'),
+    path('', views.calculate, name='calculate'),
 ]
